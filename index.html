@@ -8,7 +8,7 @@
 <meta property="og:title" content="Yasmine, 23 ans">
 <meta property="og:description" content="Née le 4 août 2003 à midi. Le compte à rebours, seconde par seconde.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://jelyoussefi.github.io/Yasmine/og.jpg">
+<meta property="og:image" content="https://jelyoussefi.github.io/Yasmine/og.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,14 +32,15 @@
   }
   .voile{
     background:linear-gradient(180deg,
-      rgba(10,30,58,.70) 0%,
-      rgba(10,30,58,.16) 22%,
-      rgba(10,30,58,.06) 42%,
-      rgba(10,30,58,.55) 68%,
-      rgba(10,30,58,.90) 88%,
-      rgba(10,30,58,.96) 100%);
+      rgba(10,30,58,.46) 0%,
+      rgba(10,30,58,.06) 20%,
+      rgba(10,30,58,0) 40%,
+      rgba(10,30,58,.10) 55%,
+      rgba(10,30,58,.42) 72%,
+      rgba(10,30,58,.70) 88%,
+      rgba(10,30,58,.80) 100%);
   }
-  .nuit{background:#061428;opacity:.5;transition:opacity 1.2s linear}
+  .nuit{background:#061428;opacity:.26;transition:opacity 1.2s linear}
 
   /* ---- structure ---- */
   .page{
@@ -48,10 +49,10 @@
     padding:clamp(14px,3.5vw,30px) clamp(16px,4vw,32px) 0;
     text-shadow:0 2px 18px rgba(6,20,40,.55);
   }
-  .souffle{flex:1;min-height:8vh}
+  .souffle{flex:1;min-height:1vh}
 
   /* ---- arc solaire ---- */
-  .ciel{width:100%;max-width:480px;opacity:.9}
+  .ciel{width:100%;max-width:400px;opacity:.9}
   .ciel svg{width:100%;height:auto;display:block;overflow:visible}
   .arc{fill:none;stroke:rgba(255,248,231,.30);stroke-width:1;stroke-dasharray:2 7;stroke-linecap:round}
   .sol-halo{fill:var(--or);opacity:.22}
@@ -67,14 +68,25 @@
   main{width:100%;max-width:500px;text-align:center;display:flex;flex-direction:column;gap:clamp(12px,3vw,18px)}
   .titre{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.6vw,12px)}
   .nom{
+    position:relative;
     font-family:"Instrument Serif",Georgia,serif;font-weight:400;
     font-size:clamp(38px,12.6vw,78px);line-height:1;
     text-transform:uppercase;letter-spacing:.15em;text-indent:.15em;
-    background:linear-gradient(176deg,#FFFDF6 0%,#FFF1C8 34%,#F5C451 66%,#DE8F45 100%);
-    -webkit-background-clip:text;background-clip:text;
-    color:#FFF3D2;-webkit-text-fill-color:transparent;
-    filter:drop-shadow(0 2px 12px rgba(6,20,40,.6)) drop-shadow(0 0 30px rgba(245,196,81,.28));
-    text-shadow:none;
+    color:#FFF3D2;
+    text-shadow:0 2px 16px rgba(6,20,40,.75),0 0 42px rgba(245,196,81,.35);
+  }
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .nom{
+      background:linear-gradient(176deg,#FFFDF6 0%,#FFF1C8 32%,#F5C451 64%,#E2934A 100%);
+      -webkit-background-clip:text;background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:none;
+    }
+    .nom::before{
+      content:"YASMINE";position:absolute;inset:0;z-index:-1;
+      color:rgba(6,20,40,.55);-webkit-text-fill-color:rgba(6,20,40,.55);
+      filter:blur(14px);
+    }
   }
   .nom .l{display:inline-block}
   .age{
@@ -119,7 +131,7 @@
   .vie-val{font-size:clamp(16px,4.9vw,28px);font-weight:500;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;color:var(--or);white-space:nowrap}
 
   /* ---- prairie ---- */
-  .prairie{width:100%;max-width:640px;margin-top:clamp(8px,2.5vw,16px)}
+  .prairie{width:100%;max-width:560px;margin-top:clamp(2px,1vw,8px)}
   .prairie svg{width:100%;height:auto;display:block}
   .tige{fill:none;stroke:#7FB98B;stroke-width:2.2;stroke-linecap:round}
   .feuille{fill:#7FB98B;opacity:.9}
@@ -352,7 +364,7 @@
     halo.setAttribute("cy", 110 - 100 * Math.sin(theta));
     halo.setAttribute("r", 26 + 16 * p);
 
-    nuit.style.opacity = (0.5 * (1 - p)).toFixed(3);
+    nuit.style.opacity = (0.26 * (1 - p)).toFixed(3);
 
     eclore(p);
   }
